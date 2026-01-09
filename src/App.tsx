@@ -5,6 +5,7 @@ import { SiteLayout } from "@/components/layout/site-layout";
 import { AboutPage } from "@/pages/about";
 import { ContactPage } from "@/pages/contact";
 import { HomePage } from "@/pages/home";
+import { QuestionnairePage } from "@/pages/questionnaire";
 import { ServicesPage } from "@/pages/services";
 import { AccessibilityStatementPage } from "@/pages/legal/accessibility-statement";
 import { CookiesPolicyPage } from "@/pages/legal/cookies-policy";
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+          <Route path="/questionnaire" element={<QuestionnairePage />} />
 
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/cookies" element={<CookiesPolicyPage />} />

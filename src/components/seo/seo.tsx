@@ -7,9 +7,10 @@ type SeoProps = {
   description?: string;
   path?: string;
   noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
-export function Seo({ title, description, path, noindex }: SeoProps) {
+export function Seo({ title, description, path, noindex, jsonLd }: SeoProps) {
   const computedTitle = title
     ? defaultSeo.titleTemplate.replace("%s", title)
     : defaultSeo.title;
@@ -28,6 +29,11 @@ export function Seo({ title, description, path, noindex }: SeoProps) {
         <meta name="description" content={defaultSeo.description} />
       )}
       {noindex ? <meta name="robots" content="noindex,nofollow" /> : null}
+      {jsonLd ? (
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      ) : null}
     </Helmet>
   );
 }
