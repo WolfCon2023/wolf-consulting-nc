@@ -1,0 +1,12 @@
+Role:
+Action:
+Context:
+Expectation:
+
+SMTP_HOST smtp.ionos.com
+SMTP_PASS Wolf77Tech2025#$_1!ExcelTilInfinity!
+SMTP_PORT 587
+SMTP_SECURE false
+SMTP_USER support@wolfconsultingnc.com
+
+Legal information in the footer that is very very detailed to include: Privacy, Cookies, Terms, Accessibility,  and Licenses as done with https://www.goeducateinc.org/.

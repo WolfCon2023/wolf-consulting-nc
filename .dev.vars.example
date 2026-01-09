@@ -1,0 +1,7 @@
+CONTACT_TO_EMAIL=contactWCG@wolfconsultingnc.com
+CONTACT_FROM_EMAIL=support@wolfconsultingnc.com
+# Optional: require Turnstile on /api/contact
+# TURNSTILE_SECRET_KEY=
+
+
+
