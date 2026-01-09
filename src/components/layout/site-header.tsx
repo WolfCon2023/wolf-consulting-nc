@@ -25,14 +25,16 @@ export function Header() {
         >
           <span className="inline-flex items-center justify-center rounded-lg border bg-background/60 p-1 shadow-sm">
             {logoOk ? (
-              <img
-                src={site.brand.logo.src}
-                alt={site.brand.logo.alt}
-                className="h-10 w-auto object-contain drop-shadow-sm md:h-11"
-                loading="eager"
-                decoding="async"
-                onError={() => setLogoOk(false)}
-              />
+              <span className="h-10 w-24 overflow-hidden rounded-md md:h-11 md:w-28">
+                <img
+                  src={site.brand.logo.src}
+                  alt={site.brand.logo.alt}
+                  className="h-full w-full object-cover object-center"
+                  loading="eager"
+                  decoding="async"
+                  onError={() => setLogoOk(false)}
+                />
+              </span>
             ) : (
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary text-primary-foreground md:h-11 md:w-11">
                 WC
