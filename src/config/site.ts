@@ -18,7 +18,6 @@ export const site = {
   contact: {
     email: "contactWCG@wolfconsultingnc.com",
     phone: "704-803-0934",
-    altPhone: "1-844-217-0195",
   },
   hours: {
     days: "Monday – Saturday",

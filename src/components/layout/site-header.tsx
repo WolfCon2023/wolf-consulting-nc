@@ -23,20 +23,22 @@ export function Header() {
           className="flex items-center gap-2 font-semibold tracking-tight"
           onClick={() => setOpen(false)}
         >
-          {logoOk ? (
-            <img
-              src={site.brand.logo.src}
-              alt={site.brand.logo.alt}
-              className="h-9 w-auto"
-              loading="eager"
-              decoding="async"
-              onError={() => setLogoOk(false)}
-            />
-          ) : (
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              WC
-            </span>
-          )}
+          <span className="inline-flex items-center justify-center rounded-lg border bg-background/60 p-1 shadow-sm">
+            {logoOk ? (
+              <img
+                src={site.brand.logo.src}
+                alt={site.brand.logo.alt}
+                className="h-10 w-auto object-contain drop-shadow-sm md:h-11"
+                loading="eager"
+                decoding="async"
+                onError={() => setLogoOk(false)}
+              />
+            ) : (
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-primary text-primary-foreground md:h-11 md:w-11">
+                WC
+              </span>
+            )}
+          </span>
           <span className="hidden sm:inline">{site.legalName}</span>
           <span className="sm:hidden">{site.name}</span>
         </NavLink>

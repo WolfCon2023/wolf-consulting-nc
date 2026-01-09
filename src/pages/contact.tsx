@@ -19,6 +19,7 @@ const contactSchema = z.object({
   message: z.string().min(10, "Please add a bit more detail (10+ characters)."),
   companyWebsite: z.string().optional(), // honeypot
   turnstileToken: z.string().optional(),
+  source: z.enum(["contact", "questionnaire"]).optional(),
 });
 
 type ContactValues = z.infer<typeof contactSchema>;
@@ -54,7 +55,7 @@ export function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, source: "contact" }),
       });
 
       if (!res.ok) {
@@ -116,7 +117,6 @@ export function ContactPage() {
                   <a className="hover:underline" href={`tel:${site.contact.phone}`}>
                     {site.contact.phone}
                   </a>
-                  <div className="text-xs">Alt: {site.contact.altPhone}</div>
                 </div>
               </div>
               <div>
@@ -203,7 +203,8 @@ export function ContactPage() {
                   </Button>
                   {status.state === "success" ? (
                     <p className="text-sm text-foreground">
-                      Thanks—your message was sent. We’ll reply soon.
+                      Thanks—your message was sent. A member of our team will reach out
+                      shortly (typically within 1 business day).
                     </p>
                   ) : null}
                   {status.state === "error" ? (
