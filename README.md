@@ -55,7 +55,10 @@ Set the same variables as above in your Cloudflare Pages project settings:
 
 Cloudflare Pages Functions run on a Workers runtime that does **not** support raw TCP sockets, which means direct **SMTP (e.g., Nodemailer SMTP)** is generally not available.
 
-This implementation sends emails via **MailChannels** over HTTPS from the Worker runtime. If you require direct SMTP via IONOS, you’ll need an external Node-based service (or a provider API like Postmark/Resend) and have `/api/contact` forward there.
+Recommended approach: use an email provider API that works over HTTPS. This repo supports:
+
+- **Resend (recommended)**: set `RESEND_API_KEY` and the Pages Function will send email via Resend.
+- **MailChannels fallback**: if `RESEND_API_KEY` is not set, the function sends via MailChannels over HTTPS (Workers-compatible).
 
 ## Domain migration (Squarespace → Cloudflare)
 

@@ -3,5 +3,8 @@ CONTACT_FROM_EMAIL=support@wolfconsultingnc.com
 # Optional: require Turnstile on /api/contact
 # TURNSTILE_SECRET_KEY=
 
+# Recommended: Resend (works on Cloudflare Pages)
+# RESEND_API_KEY=
+
 
 

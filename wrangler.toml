@@ -1,0 +1,14 @@
+name = "wolf-consulting-nc"
+compatibility_date = "2025-01-01"
+
+# Cloudflare Pages uses `functions/` automatically when deployed via Pages.
+# This file is primarily for local development (`npm run cf:dev`)
+# and optional CLI deploys (`npm run cf:deploy`).
+
+[vars]
+# Set real values in Cloudflare Pages project settings (Production/Preview).
+# CONTACT_TO_EMAIL = "contactWCG@wolfconsultingnc.com"
+# CONTACT_FROM_EMAIL = "support@wolfconsultingnc.com"
+# TURNSTILE_SECRET_KEY = ""
+# RESEND_API_KEY = ""
+
