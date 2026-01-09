@@ -25,11 +25,11 @@ export function Header() {
         >
           <span className="inline-flex items-center justify-center rounded-lg border bg-background/60 p-1 shadow-sm">
             {logoOk ? (
-              <span className="h-10 w-24 overflow-hidden rounded-md md:h-11 md:w-28">
+              <span className="h-10 w-28 overflow-hidden rounded-md md:h-11 md:w-32">
                 <img
                   src={site.brand.logo.src}
                   alt={site.brand.logo.alt}
-                  className="h-full w-full object-cover object-center"
+                  className="h-full w-full object-cover object-center [transform:scale(2.3)]"
                   loading="eager"
                   decoding="async"
                   onError={() => setLogoOk(false)}
