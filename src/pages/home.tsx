@@ -96,7 +96,7 @@ export function HomePage() {
           <SectionHeader
             eyebrow="Trust"
             title="A partner you can rely on"
-            description="Built for leaders who want clarity, momentum, and outcomes—not noise."
+            description="Built for leaders who want clarity, momentum, and measurable outcomes—not noise."
             align="center"
           />
           <div className="mt-10">
