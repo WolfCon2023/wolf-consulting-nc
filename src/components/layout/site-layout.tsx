@@ -1,11 +1,31 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 
 import { Analytics } from "@/components/analytics/analytics";
 import { CookieNotice } from "@/components/legal/cookie-notice";
 import { Footer } from "@/components/layout/site-footer";
 import { Header } from "@/components/layout/site-header";
 
+function useHashScroll() {
+  const { hash, pathname } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+
+    const timeout = setTimeout(() => {
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 150);
+
+    return () => clearTimeout(timeout);
+  }, [hash, pathname]);
+}
+
 export function SiteLayout() {
+  useHashScroll();
+
   return (
     <div className="min-h-dvh bg-background text-foreground">
       <Analytics />
