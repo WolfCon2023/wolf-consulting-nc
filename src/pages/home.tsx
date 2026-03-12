@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import { Seo } from "@/components/seo/seo";
 import { Faq } from "@/components/marketing/faq";
+import { Products } from "@/components/marketing/products";
 import { Section, SectionHeader } from "@/components/marketing/section";
 import { Testimonials } from "@/components/marketing/testimonials";
 import { TrustBadges } from "@/components/marketing/trust-badges";
@@ -154,6 +155,20 @@ export function HomePage() {
             <Button asChild variant="outline">
               <NavLink to="/questionnaire">Start Website Questionnaire</NavLink>
             </Button>
+          </div>
+        </div>
+      </Section>
+
+      <Section id="products">
+        <div className="container py-14">
+          <SectionHeader
+            eyebrow="Products"
+            title="Software built for the way you work"
+            description="Purpose-built tools from Wolf Consulting Group to streamline operations and give your team a single source of truth."
+            align="center"
+          />
+          <div className="mt-10">
+            <Products />
           </div>
         </div>
       </Section>

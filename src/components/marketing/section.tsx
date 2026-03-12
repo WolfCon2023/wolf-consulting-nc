@@ -6,13 +6,16 @@ export function Section({
   children,
   className,
   tone = "default",
+  id,
 }: {
   children: ReactNode;
   className?: string;
   tone?: "default" | "muted" | "bordered";
+  id?: string;
 }) {
   return (
     <section
+      id={id}
       className={cn(
         tone === "muted" && "bg-muted/30",
         tone === "bordered" && "border-y",

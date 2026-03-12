@@ -1,19 +1,48 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useMemo, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useCallback, useMemo, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import { navLinks, site } from "@/config/site";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+function scrollToHash(hash: string) {
+  const el = document.querySelector(hash);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const [logoOk, setLogoOk] = useState(true);
   const reducedMotion = useReducedMotion();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const items = useMemo(() => navLinks, []);
+
+  const handleHashLink = useCallback(
+    (e: React.MouseEvent, href: string) => {
+      const [path, hash] = href.split("#");
+      if (!hash) return;
+
+      e.preventDefault();
+      setOpen(false);
+
+      if (location.pathname === (path || "/")) {
+        scrollToHash(`#${hash}`);
+      } else {
+        navigate(path || "/");
+        requestAnimationFrame(() => {
+          setTimeout(() => scrollToHash(`#${hash}`), 100);
+        });
+      }
+    },
+    [location.pathname, navigate],
+  );
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur">
@@ -50,10 +79,13 @@ export function Header() {
             <NavLink
               key={item.href}
               to={item.href}
+              onClick={(e) =>
+                item.href.includes("#") ? handleHashLink(e, item.href) : undefined
+              }
               className={({ isActive }) =>
                 cn(
                   "rounded-md px-2 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                  isActive && "text-foreground",
+                  isActive && !item.href.includes("#") && "text-foreground",
                 )
               }
             >
@@ -96,11 +128,17 @@ export function Header() {
                 <NavLink
                   key={item.href}
                   to={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    if (item.href.includes("#")) {
+                      handleHashLink(e, item.href);
+                    } else {
+                      setOpen(false);
+                    }
+                  }}
                   className={({ isActive }) =>
                     cn(
                       "rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent/10 hover:text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                      isActive && "bg-accent/10 text-foreground",
+                      isActive && !item.href.includes("#") && "bg-accent/10 text-foreground",
                     )
                   }
                 >
