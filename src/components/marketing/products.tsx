@@ -11,16 +11,25 @@ export function Products() {
       {products.map((product) => (
         <Card key={product.slug} className="overflow-hidden">
           <div className="grid md:grid-cols-5">
-            <div className="flex flex-col justify-center gap-2 border-b bg-muted/30 p-8 md:col-span-2 md:border-b-0 md:border-r">
-              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Flagship product
-              </span>
-              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
-                {product.name}
-              </h3>
-              <p className="text-sm font-medium text-muted-foreground">
-                {product.tagline}
-              </p>
+            <div className="flex flex-col items-center justify-center gap-4 border-b bg-muted/30 p-8 md:col-span-2 md:border-b-0 md:border-r">
+              <img
+                src={`/${product.slug}-logo.png`}
+                alt={`${product.name} logo`}
+                className="h-16 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="text-center">
+                <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Flagship product
+                </span>
+                <h3 className="mt-1 text-2xl font-semibold tracking-tight md:text-3xl">
+                  {product.name}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-muted-foreground">
+                  {product.tagline}
+                </p>
+              </div>
             </div>
 
             <CardHeader className="md:col-span-3">

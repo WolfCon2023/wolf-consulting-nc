@@ -24,7 +24,7 @@ export const products: Product[] = [
     ],
     primaryCta: {
       label: "View Demo",
-      href: "https://boaz-web-demo-production.up.railway.app/demo",
+      href: "https://boaz-web-demo-production.up.railway.app/",
     },
     secondaryCta: {
       label: "Request a Walkthrough",
