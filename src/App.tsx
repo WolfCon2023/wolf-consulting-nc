@@ -5,6 +5,8 @@ import {
   AccessibilityLauncher,
 } from "@wolfconsulting/accessibility-widget";
 import "@wolfconsulting/accessibility-widget/styles.css";
+import { ThemeProvider, ThemeLauncher } from "@wolfconsulting/theme-widget";
+import "@wolfconsulting/theme-widget/styles.css";
 
 import { SiteLayout } from "@/components/layout/site-layout";
 import { AboutPage } from "@/pages/about";
@@ -22,48 +24,70 @@ import { NotFoundPage } from "@/pages/not-found";
 export default function App() {
   return (
     <HelmetProvider>
-      <AccessibilityProvider
+      <ThemeProvider
         config={{
-          position: "bottom-right",
+          position: "bottom-left",
           brandColors: {
             primary: "#0f172a",
             secondary: "#1e3a5f",
             accent: "#e8b008",
           },
-          storageKey: "wolf-consulting-nc-a11y",
+          storageKey: "wcg_theme",
           panel: {
-            title: "Accessibility Options",
-            subtitle:
-              "Customize your browsing experience for readability, visibility, and comfort.",
-            footerNote:
-              "Wolf Consulting Group is committed to accessible design.",
+            title: "Choose Theme",
           },
         }}
       >
-        <BrowserRouter>
-          <Routes>
-            <Route element={<SiteLayout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/questionnaire" element={<QuestionnairePage />} />
+        <AccessibilityProvider
+          config={{
+            position: "bottom-right",
+            brandColors: {
+              primary: "#0f172a",
+              secondary: "#1e3a5f",
+              accent: "#e8b008",
+            },
+            storageKey: "wolf-consulting-nc-a11y",
+            panel: {
+              title: "Accessibility Options",
+              subtitle:
+                "Customize your browsing experience for readability, visibility, and comfort.",
+              footerNote:
+                "Wolf Consulting Group is committed to accessible design.",
+            },
+          }}
+        >
+          <BrowserRouter>
+            <Routes>
+              <Route element={<SiteLayout />}>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route
+                  path="/questionnaire"
+                  element={<QuestionnairePage />}
+                />
 
-              <Route path="/privacy" element={<PrivacyPolicyPage />} />
-              <Route path="/cookies" element={<CookiesPolicyPage />} />
-              <Route path="/terms" element={<TermsOfUsePage />} />
-              <Route
-                path="/accessibility"
-                element={<AccessibilityStatementPage />}
-              />
-              <Route path="/licenses" element={<OpenSourceLicensesPage />} />
+                <Route path="/privacy" element={<PrivacyPolicyPage />} />
+                <Route path="/cookies" element={<CookiesPolicyPage />} />
+                <Route path="/terms" element={<TermsOfUsePage />} />
+                <Route
+                  path="/accessibility"
+                  element={<AccessibilityStatementPage />}
+                />
+                <Route
+                  path="/licenses"
+                  element={<OpenSourceLicensesPage />}
+                />
 
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-        <AccessibilityLauncher />
-      </AccessibilityProvider>
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+          <AccessibilityLauncher />
+        </AccessibilityProvider>
+        <ThemeLauncher />
+      </ThemeProvider>
     </HelmetProvider>
   );
 }

@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 /dist
 !packages/accessibility-widget/dist
+!packages/theme-widget/dist
 dist-ssr
 *.local
 .dev.vars

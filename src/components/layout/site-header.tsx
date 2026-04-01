@@ -4,7 +4,6 @@ import { useCallback, useMemo, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import { navLinks, site } from "@/config/site";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -95,14 +94,12 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <ThemeToggle showLabel />
           <Button asChild>
             <NavLink to={site.ctas.primary.href}>{site.ctas.primary.label}</NavLink>
           </Button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <Button
             variant="outline"
             size="icon"
