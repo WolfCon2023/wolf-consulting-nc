@@ -1,0 +1,35 @@
+{
+  "name": "@wolfconsulting/accessibility-widget",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A premium, configurable accessibility widget for React applications. Built by Wolf Consulting Group, LLC.",
+  "author": "Wolf Consulting Group, LLC",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "peerDependencies": {
+    "clsx": ">=2",
+    "framer-motion": ">=12",
+    "lucide-react": ">=0.300.0",
+    "react": ">=18",
+    "react-dom": ">=18",
+    "tailwind-merge": ">=2"
+  }
+}

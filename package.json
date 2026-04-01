@@ -13,6 +13,7 @@
     "cf:deploy": "npm run build && wrangler pages deploy dist"
   },
   "dependencies": {
+    "@wolfconsulting/accessibility-widget": "file:./packages/accessibility-widget",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-label": "^2.1.1",
