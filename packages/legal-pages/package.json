@@ -1,0 +1,28 @@
+{
+  "name": "@wolfconsulting/legal-pages",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Configurable legal page components (Privacy, Cookies, Terms, Accessibility, Licenses) for React applications. Built by Wolf Consulting Group, LLC.",
+  "author": "Wolf Consulting Group, LLC",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  }
+}

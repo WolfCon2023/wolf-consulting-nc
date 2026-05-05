@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "next/link": path.resolve(__dirname, "./src/shims/next-link.tsx"),
     },
   },
 })

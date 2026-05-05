@@ -5,7 +5,11 @@ import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{ts,tsx}",
+    "./packages/legal-pages/dist/**/*.{js,mjs}",
+  ],
   theme: {
     container: {
       center: true,
