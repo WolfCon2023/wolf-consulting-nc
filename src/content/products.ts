@@ -53,4 +53,26 @@ export const products: Product[] = [
       href: "/contact",
     },
   },
+  {
+    name: "LedgerOS",
+    slug: "ledgeros",
+    tagline: "Professional accounting OS for modern firms.",
+    description:
+      "LedgerOS is Wolf Consulting Group's multi-client accounting platform for firms — chart of accounts, general ledger, AR/AP, bank reconciliation, tax preparation, compliance, documents, and audit trail in one workspace.",
+    highlights: [
+      "Multi-client firm workspace with client switching",
+      "Full books: CoA, general ledger, and bank rec",
+      "Invoices, bills, expenses, and payments",
+      "Tax preparation and compliance tracking",
+      "Reports, documents, tasks, and audit logs",
+    ],
+    primaryCta: {
+      label: "View Demo",
+      href: "https://ledgeros-demo-production.up.railway.app/",
+    },
+    secondaryCta: {
+      label: "Request a Walkthrough",
+      href: "/contact",
+    },
+  },
 ];
