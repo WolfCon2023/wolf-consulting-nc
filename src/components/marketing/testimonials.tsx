@@ -1,37 +1,22 @@
-import { Card, CardContent } from "@/components/ui/card";
-
-const testimonials = [
-  {
-    quote:
-      "Wolf Consulting helped us align delivery with outcomes. The agile coaching was practical, not theoretical—and we saw immediate improvements in clarity and throughput.",
-    by: "Delivery leader (confidential)",
-  },
-  {
-    quote:
-      "We came in for strategy and left with a plan we could actually execute. Strong communication, solid architecture thinking, and reliable follow-through.",
-    by: "Technology stakeholder (confidential)",
-  },
-  {
-    quote:
-      "Great partner for modernizing our approach: coaching, process, and engineering support all in one. The engagement felt structured and calm.",
-    by: "Operations manager (confidential)",
-  },
-] as const;
+import { caseStudies } from "@/content/caseStudies";
 
 export function Testimonials() {
   return (
     <div className="grid gap-4 md:grid-cols-3">
-      {testimonials.map((t) => (
-        <Card key={t.by}>
-          <CardContent className="p-6">
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              “{t.quote}”
-            </p>
-            <div className="mt-4 text-sm font-semibold">{t.by}</div>
-          </CardContent>
-        </Card>
+      {caseStudies.map((study) => (
+        <figure
+          key={study.id}
+          className="rounded-2xl border bg-card p-6"
+        >
+          <blockquote className="text-sm leading-relaxed text-muted-foreground">
+            “{study.quote}”
+          </blockquote>
+          <figcaption className="mt-4">
+            <p className="text-sm font-semibold text-foreground">{study.role}</p>
+            <p className="text-xs text-muted-foreground">{study.industry}</p>
+          </figcaption>
+        </figure>
       ))}
     </div>
   );
 }
-

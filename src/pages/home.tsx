@@ -1,17 +1,16 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { NavLink } from "react-router-dom";
-
 import { Seo } from "@/components/seo/seo";
+import { CaseStudies } from "@/components/marketing/case-studies";
 import { Faq } from "@/components/marketing/faq";
 import { Hero } from "@/components/marketing/hero";
 import { Products } from "@/components/marketing/products";
 import { Section, SectionHeader } from "@/components/marketing/section";
-import { Testimonials } from "@/components/marketing/testimonials";
 import { TrustBadges } from "@/components/marketing/trust-badges";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { site } from "@/config/site";
 import { homeFaq } from "@/content/faq";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export function HomePage() {
   const jsonLd = [
@@ -190,12 +189,12 @@ export function HomePage() {
       <Section tone="muted" className="border-y">
         <div className="container py-14">
           <SectionHeader
-            eyebrow="Results"
-            title="What clients say"
-            description="High-trust delivery, practical guidance, and outcomes stakeholders can see."
+            eyebrow="Proof"
+            title="Outcomes from recent engagements"
+            description="Attributed by role and organization type. Named logos and quotes available when clients approve public use."
           />
           <div className="mt-8">
-            <Testimonials />
+            <CaseStudies />
           </div>
         </div>
       </Section>

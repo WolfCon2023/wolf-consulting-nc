@@ -1,85 +1,158 @@
-export type Service = {
+export type ServiceEngagement = {
+  id: string;
   title: string;
-  description: string;
+  forWho: string;
+  outcome: string;
+  days30: string;
+  days60: string;
+  days90: string;
+  deliverables: string[];
 };
 
-export const services: Service[] = [
+/** Primary offers — how clients actually buy, not a laundry list of buzzwords. */
+export const serviceEngagements: ServiceEngagement[] = [
   {
-    title: "Agile Coaching",
-    description:
-      "Our firm offers expert guidance and support in adopting agile methodologies within organizations. Agile coaches work closely with teams to facilitate the implementation of agile principles, practices, and frameworks tailored to specific business needs.",
+    id: "agile-delivery",
+    title: "Agile delivery coaching",
+    forWho: "Leaders and teams stuck in process theater or inconsistent delivery.",
+    outcome: "Clearer priorities, a sustainable cadence, and throughput you can measure.",
+    days30: "Baseline flow, roles, and friction; establish a working cadence.",
+    days60: "Coach ceremonies that matter; cut waste; align stakeholders to outcomes.",
+    days90: "Team owns the system; leadership has a simple scoreboard for progress.",
+    deliverables: [
+      "Current-state delivery map",
+      "Working agreements + cadence plan",
+      "Leadership dashboard for outcomes",
+    ],
   },
   {
-    title: "Certified Scrum Masters",
-    description:
-      "Our firm provides certified Scrum Masters who are equipped with the necessary skills and knowledge to lead Scrum teams effectively. These professionals ensure that Scrum practices are properly implemented and followed to maximize team productivity and deliver value to stakeholders.",
+    id: "it-strategy",
+    title: "IT & technology strategy",
+    forWho: "Operators who need technology decisions tied to business goals — not slide decks.",
+    outcome: "A prioritized roadmap with risks, sequencing, and what not to build.",
+    days30: "Assess systems, constraints, and decision bottlenecks.",
+    days60: "Architecture options, cost/risk tradeoffs, and a 2–4 quarter plan.",
+    days90: "Execution kickoff with owners, milestones, and success metrics.",
+    deliverables: [
+      "Strategy assessment brief",
+      "Target architecture outline",
+      "Prioritized implementation roadmap",
+    ],
   },
   {
-    title: "Certified Product Owners",
-    description:
-      "Our firm offers certified Product Owners who are responsible for maximizing the value of products and services delivered by agile teams. Certified Product Owners collaborate closely with stakeholders to prioritize requirements, define product vision, and ensure alignment with business goals.",
+    id: "product-build",
+    title: "Custom product & platform build",
+    forWho: "Organizations that need software shaped to their workflows — clinics, firms, operators.",
+    outcome: "A shipped increment users can run, with a path to production support.",
+    days30: "Scope the MVP, data model, and UX against real workflows.",
+    days60: "Build and validate the core loop with stakeholder feedback.",
+    days90: "Harden, deploy, and hand off runbooks + training.",
+    deliverables: [
+      "Product brief + MVP scope",
+      "Working software increment",
+      "Launch checklist + support plan",
+    ],
   },
   {
-    title: "IT Consulting",
-    description:
-      "Our firm provides IT consulting services to assist organizations in leveraging agile methodologies to optimize their IT processes and systems. Their consultants offer strategic guidance and practical solutions to address IT challenges and drive business transformation.",
-  },
-  {
-    title: "Technology Strategy Assessment",
-    description:
-      "Our firm conducts thorough assessments to evaluate existing technology strategies within organizations, identifying strengths, weaknesses, and areas for improvement to align technology with business objectives effectively.",
-  },
-  {
-    title: "Architectural Planning",
-    description:
-      "Our firm assists clients in developing robust architectural plans tailored to their specific needs, ensuring scalability, flexibility, and alignment with business goals.",
-  },
-  {
-    title: "Implementation Planning",
-    description:
-      "Our firm provides strategic guidance and support for implementing technology solutions, including project planning, resource allocation, and timeline management to ensure successful execution.",
-  },
-  {
-    title: "Operational Planning",
-    description:
-      "Our firm helps organizations streamline operational processes by developing efficient plans and workflows, optimizing resource utilization, and enhancing overall operational effectiveness.",
-  },
-  {
-    title: "Strategic Consultation",
-    description:
-      "Our firm provides strategic consultation services to provide insights, recommendations, and actionable strategies to drive business growth, innovation, and competitive advantage.",
-  },
-  {
-    title: "Application Development",
-    description:
-      "Our firm offers custom application development services, creating tailored solutions to address unique business requirements, enhance productivity, and drive digital transformation.",
-  },
-  {
-    title: "Application Support",
-    description:
-      "Our firm provides ongoing support services to ensure the smooth operation and maintenance of applications, including troubleshooting, bug fixes, and performance optimization.",
-  },
-  {
-    title: "Help Desk Support",
-    description:
-      "Our firm offers comprehensive help desk support to address technical issues, assist users, and ensure seamless operation of IT systems and applications.",
-  },
-  {
-    title: "Infrastructure Engineering",
-    description:
-      "Our firm specializes in infrastructure engineering, designing and implementing robust IT infrastructure solutions to support business operations, enhance security, and optimize performance.",
-  },
-  {
-    title: "Service Delivery Management",
-    description:
-      "Our firm offers service delivery management services to oversee the delivery of IT services, monitor performance metrics, and continuously improve service quality.",
-  },
-  {
-    title: "Software Engineering",
-    description:
-      "Our firm offers the services of software engineers to develop high-quality software solutions, from concept to deployment, tailored to meet their specific needs and objectives.",
+    id: "ops-reliability",
+    title: "Operations & reliability support",
+    forWho: "Teams that need systems kept healthy while they grow — apps, infra, and help desk.",
+    outcome: "Fewer fire drills, clearer ownership, and support that scales with usage.",
+    days30: "Stabilize critical paths; define severity and response norms.",
+    days60: "Instrument monitoring, patching, and support workflows.",
+    days90: "Steady-state support with measurable SLAs and continuous improvement.",
+    deliverables: [
+      "Support / severity model",
+      "Runbooks for critical systems",
+      "Monthly reliability readout",
+    ],
   },
 ];
 
+export type Service = {
+  title: string;
+  description: string;
+  group: "Agile & delivery" | "Strategy & architecture" | "Build & engineering" | "Support & operations";
+};
 
-
+/** Detailed catalog — still available, grouped under each engagement. */
+export const services: Service[] = [
+  {
+    group: "Agile & delivery",
+    title: "Agile coaching",
+    description:
+      "Hands-on coaching to adopt agile practices that fit your constraints — not a one-size framework drop-in.",
+  },
+  {
+    group: "Agile & delivery",
+    title: "Scrum Master leadership",
+    description:
+      "Certified Scrum Masters who protect focus, remove blockers, and keep delivery honest.",
+  },
+  {
+    group: "Agile & delivery",
+    title: "Product ownership support",
+    description:
+      "Certified Product Owners who prioritize ruthlessly, align stakeholders, and keep value visible.",
+  },
+  {
+    group: "Strategy & architecture",
+    title: "IT consulting",
+    description:
+      "Strategic guidance for IT processes and systems with practical recommendations you can execute.",
+  },
+  {
+    group: "Strategy & architecture",
+    title: "Technology strategy assessment",
+    description:
+      "Evaluate current strategy, surface gaps, and align technology choices to business objectives.",
+  },
+  {
+    group: "Strategy & architecture",
+    title: "Architectural planning",
+    description:
+      "Scalable, flexible architecture plans tailored to your stack, risk tolerance, and growth path.",
+  },
+  {
+    group: "Strategy & architecture",
+    title: "Implementation & operational planning",
+    description:
+      "Project sequencing, resource plans, and operational workflows that survive contact with reality.",
+  },
+  {
+    group: "Build & engineering",
+    title: "Application development",
+    description:
+      "Custom applications shaped to unique workflows — from concept through production.",
+  },
+  {
+    group: "Build & engineering",
+    title: "Software engineering",
+    description:
+      "Engineers who ship maintainable software with clear ownership and documentation.",
+  },
+  {
+    group: "Build & engineering",
+    title: "Infrastructure engineering",
+    description:
+      "Design and implement infrastructure that supports security, performance, and day-to-day operations.",
+  },
+  {
+    group: "Support & operations",
+    title: "Application support",
+    description:
+      "Ongoing maintenance: troubleshooting, fixes, and performance work so production stays calm.",
+  },
+  {
+    group: "Support & operations",
+    title: "Help desk support",
+    description:
+      "User-facing support for technical issues so your team stays productive.",
+  },
+  {
+    group: "Support & operations",
+    title: "Service delivery management",
+    description:
+      "Oversight of IT service delivery, metrics, and continuous improvement of quality.",
+  },
+];

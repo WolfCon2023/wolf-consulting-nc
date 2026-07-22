@@ -1,5 +1,9 @@
+import { ArrowRight } from "lucide-react";
+import { NavLink } from "react-router-dom";
+
 import { Seo } from "@/components/seo/seo";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Section, SectionHeader } from "@/components/marketing/section";
+import { Button } from "@/components/ui/button";
 import { site } from "@/config/site";
 
 export function AboutPage() {
@@ -8,102 +12,159 @@ export function AboutPage() {
       <Seo
         title="About"
         path="/about"
-        description="Learn about Wolf Consulting Group, LLC—our story, motivations, and methodologies across agile and IT delivery."
+        description="Wolf Consulting Group is a minority veteran-owned firm in Waxhaw, NC — building software and coaching teams with 25+ years of IT experience behind the work."
       />
 
-      <section className="border-b">
-        <div className="container py-14 md:py-20">
-          <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            Professional Expertise
+      <section className="relative overflow-hidden border-b bg-[hsl(222_47%_9%)] text-[hsl(210_40%_98%)]">
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden="true"
+          style={{
+            backgroundImage:
+              "radial-gradient(ellipse 70% 50% at 80% 0%, hsl(45 93% 47% / 0.14), transparent 55%)",
+          }}
+        />
+        <div className="container relative py-14 md:py-20">
+          <p className="text-xs font-semibold tracking-[0.2em] text-[hsl(45_93%_55%)] uppercase">
+            About
+          </p>
+          <h1 className="mt-3 max-w-3xl text-balance text-4xl font-semibold tracking-tight md:text-5xl">
+            Built by practitioners — not deck writers.
           </h1>
-          <p className="mt-4 max-w-3xl text-muted-foreground">
-            {site.legalName} is a minority veteran-owned business. Established in
-            February 2023 in Waxhaw, North Carolina, our firm embodies a commitment to
-            excellence, integrity, and service. We believe in the power of expertise,
-            innovation, and dedication to drive transformative change for our clients.
+          <p className="mt-4 max-w-2xl text-pretty text-white/70">
+            {site.legalName} is a minority, disabled-veteran-owned firm founded in
+            February 2023 in {site.location.city}, {site.location.state}. We combine
+            more than 25 years of hands-on IT experience with product building and
+            delivery coaching.
           </p>
         </div>
       </section>
 
-      <section>
+      <Section>
         <div className="container py-14">
-          <div className="grid gap-6 lg:grid-cols-3">
-            <Card>
-              <CardHeader>
-                <CardTitle>Our Inception</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                Founded by a minority, disabled veteran with over 25 years of extensive
-                experience in information technology, our firm emerged from a vision to
-                bridge the gap between cutting-edge technology and real-world business
-                challenges. Our inception marks the beginning of a journey to empower
-                organizations with strategic IT solutions that drive success and
-                innovation.
-              </CardContent>
-            </Card>
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+            <div className="space-y-6 text-sm leading-relaxed text-muted-foreground md:text-base">
+              <SectionHeader
+                eyebrow="Our story"
+                title="Why we exist"
+                description="Too many organizations buy tools or frameworks that never fit the work. We started Wolf Consulting Group to close that gap — ship software that matches real workflows, and coach teams so the change sticks."
+              />
+              <p>
+                The founder’s career spans infrastructure, software delivery, and
+                leadership coaching. That mix shapes how we work: we won’t recommend
+                what we wouldn’t run ourselves, and we won’t leave you with a slide
+                deck where an operating system is what’s needed.
+              </p>
+              <p>
+                Today that means purpose-built products — BOAZ-OS, OptiAlign, and
+                LedgerOS — alongside consulting engagements for agile delivery, IT
+                strategy, and custom builds.
+              </p>
+            </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Our Motivations</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                Our motivations stem from a deep-seated passion for leveraging technology
-                to catalyze positive change and growth. We are driven by the desire to
-                empower organizations with the tools, strategies, and support they need
-                to thrive in an ever-evolving digital landscape.
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Our Identity</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                {site.legalName} stands as a beacon of reliability and proficiency in
-                the realm of information technology solutions. Our identity is rooted in
-                our unwavering dedication to delivering exceptional results tailored to
-                the unique needs of each client we serve.
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="mt-6 grid gap-6 lg:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Our Methodologies</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                We employ a diverse range of methodologies honed through years of hands-on
-                experience and continuous learning. From agile project management to scrum
-                master expertise, infrastructure engineering to software development, our
-                methodologies encompass a comprehensive spectrum of IT disciplines aimed at
-                delivering impactful results.
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Where we’re based</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                {site.location.city}, {site.location.state} {site.location.postalCode}
-                <div className="mt-3">
-                  <div>
-                    <span className="font-medium text-foreground">Hours:</span>{" "}
-                    {site.hours.days}, {site.hours.time}
-                  </div>
-                  <div className="mt-1">
-                    <span className="font-medium text-foreground">Contact:</span>{" "}
-                    {site.contact.email} · {site.contact.phone}
-                  </div>
+            <aside className="h-fit rounded-2xl border bg-muted/20 p-6">
+              <h2 className="text-sm font-semibold tracking-wider text-muted-foreground uppercase">
+                At a glance
+              </h2>
+              <dl className="mt-4 space-y-4 text-sm">
+                <div>
+                  <dt className="text-muted-foreground">Ownership</dt>
+                  <dd className="mt-1 font-medium text-foreground">
+                    Minority & disabled-veteran owned
+                  </dd>
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <dt className="text-muted-foreground">Founded</dt>
+                  <dd className="mt-1 font-medium text-foreground">
+                    February 2023 · {site.location.city}, {site.location.state}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Experience behind the work</dt>
+                  <dd className="mt-1 font-medium text-foreground">
+                    25+ years in information technology
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Hours</dt>
+                  <dd className="mt-1 font-medium text-foreground">
+                    {site.hours.days}, {site.hours.time}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-muted-foreground">Contact</dt>
+                  <dd className="mt-1 font-medium text-foreground">
+                    <a className="hover:underline" href={`mailto:${site.contact.email}`}>
+                      {site.contact.email}
+                    </a>
+                    <br />
+                    <a className="hover:underline" href={`tel:${site.contact.phone}`}>
+                      {site.contact.phone}
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </aside>
           </div>
         </div>
-      </section>
+      </Section>
+
+      <Section tone="muted" className="border-y">
+        <div className="container py-14">
+          <SectionHeader
+            eyebrow="How we show up"
+            title="What we refuse to do"
+            description="Boundaries matter as much as capabilities."
+          />
+          <ul className="mt-8 grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "No framework theater",
+                body: "We don’t install ceremonies that don’t change outcomes. Cadence must earn its keep.",
+              },
+              {
+                title: "No shelfware roadmaps",
+                body: "Strategy ends with owners, sequencing, and what we will not build.",
+              },
+              {
+                title: "No black-box handoffs",
+                body: "Software ships with runbooks, training, and a path your team can operate.",
+              },
+            ].map((item) => (
+              <li key={item.title} className="rounded-2xl border bg-card p-5">
+                <h3 className="font-semibold tracking-tight">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="container py-14">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+            <div className="max-w-xl">
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                Ready to talk?
+              </h2>
+              <p className="mt-2 text-muted-foreground">
+                Whether you need a product walkthrough or a delivery engagement, we’ll
+                start with the outcome you need.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button asChild>
+                <NavLink to="/contact">
+                  Book a consultation <ArrowRight />
+                </NavLink>
+              </Button>
+              <Button asChild variant="outline">
+                <NavLink to="/products">Explore products</NavLink>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Section>
     </>
   );
 }
-
-
