@@ -4,9 +4,7 @@ export const defaultSeo = {
   title: site.legalName,
   titleTemplate: `%s | ${site.legalName}`,
   description:
-    "Agile coaching, IT consulting, technology strategy, and engineering services tailored to your organization.",
+    "Wolf Consulting Group builds purpose-built software for clinics, accounting firms, and operators — plus agile coaching and IT strategy that stick.",
   canonicalBase: site.url,
+  ogImagePath: "/og-image.png",
 } as const;
-
-
-

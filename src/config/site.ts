@@ -29,6 +29,18 @@ export const site = {
     primary: { label: "Book a Consultation", href: "/contact" },
     secondary: { label: "Explore Products", href: "/products" },
   },
+  /**
+   * Calendar booking. Set `calLink` to your Cal.com event path to embed the
+   * scheduler (example: "your-org/30min"). Leave empty to show phone/email CTAs.
+   * Optional `externalUrl` is shown as a fallback link when embed is off.
+   */
+  booking: {
+    title: "Book a consultation",
+    description:
+      "Pick a time for a focused discovery call — goals, constraints, and the right next step.",
+    calLink: "",
+    externalUrl: "",
+  },
 } as const;
 
 export type NavChild = {
