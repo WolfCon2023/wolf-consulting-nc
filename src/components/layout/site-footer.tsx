@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 import { legalLinks, navLinks, site } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -11,13 +11,32 @@ function FooterLink({
   to: string;
   children: ReactNode;
 }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHash = to.includes("#");
+
   return (
     <NavLink
       to={to}
+      onClick={(e) => {
+        if (!isHash) return;
+        const [path, hash] = to.split("#");
+        e.preventDefault();
+        if (location.pathname === (path || "/")) {
+          document.querySelector(`#${hash}`)?.scrollIntoView({ behavior: "smooth" });
+        } else {
+          navigate(path || "/");
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              document.querySelector(`#${hash}`)?.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+          });
+        }
+      }}
       className={({ isActive }) =>
         cn(
           "rounded-md text-sm text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-          isActive && "text-foreground",
+          isActive && !isHash && "text-foreground",
         )
       }
     >
@@ -70,6 +89,15 @@ export function Footer() {
               {navLinks.map((l) => (
                 <li key={l.href}>
                   <FooterLink to={l.href}>{l.label}</FooterLink>
+                  {l.children?.length ? (
+                    <ul className="mt-2 space-y-2 border-l pl-3">
+                      {l.children.map((child) => (
+                        <li key={child.href}>
+                          <FooterLink to={child.href}>{child.label}</FooterLink>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </li>
               ))}
             </ul>

@@ -1,3 +1,5 @@
+import { products } from "@/content/products";
+
 export const site = {
   name: "Wolf Consulting Group",
   legalName: "Wolf Consulting Group, LLC",
@@ -29,13 +31,33 @@ export const site = {
   },
 } as const;
 
-export const navLinks = [
+export type NavChild = {
+  label: string;
+  href: string;
+  description?: string;
+};
+
+export type NavLinkItem = {
+  label: string;
+  href: string;
+  children?: NavChild[];
+};
+
+export const navLinks: NavLinkItem[] = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Products", href: "/#products" },
+  {
+    label: "Products",
+    href: "/#products",
+    children: products.map((product) => ({
+      label: product.name,
+      href: `/#${product.slug}`,
+      description: product.tagline,
+    })),
+  },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
-] as const;
+];
 
 export const legalLinks = [
   { label: "Privacy Policy", href: "/privacy" },
@@ -44,5 +66,3 @@ export const legalLinks = [
   { label: "Accessibility Statement", href: "/accessibility" },
   { label: "Open-Source Licenses", href: "/licenses" },
 ] as const;
-
-

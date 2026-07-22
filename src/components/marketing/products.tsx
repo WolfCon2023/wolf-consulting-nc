@@ -8,8 +8,8 @@ import { products } from "@/content/products";
 export function Products() {
   return (
     <div className="grid gap-8">
-      {products.map((product) => (
-        <Card key={product.slug} className="overflow-hidden">
+      {products.map((product, index) => (
+        <Card key={product.slug} id={product.slug} className="scroll-mt-24 overflow-hidden">
           <div className="grid md:grid-cols-5">
             <div className="flex flex-col items-center justify-center gap-4 border-b bg-muted/30 p-8 md:col-span-2 md:border-b-0 md:border-r">
               <img
@@ -21,7 +21,7 @@ export function Products() {
               />
               <div className="text-center">
                 <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Flagship product
+                  {index === 0 ? "Flagship product" : "Product"}
                 </span>
                 <h3 className="mt-1 text-2xl font-semibold tracking-tight md:text-3xl">
                   {product.name}

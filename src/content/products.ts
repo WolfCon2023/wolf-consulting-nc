@@ -31,4 +31,26 @@ export const products: Product[] = [
       href: "/contact",
     },
   },
+  {
+    name: "OptiAlign",
+    slug: "optialign",
+    tagline: "Practice management built for chiropractic clinics.",
+    description:
+      "OptiAlign is Wolf Consulting Group's cloud-based chiropractic practice management platform for individual offices, multi-provider clinics, and multi-location organizations — patients, scheduling, clinical notes, billing, and communications in one workspace.",
+    highlights: [
+      "Patient directory and longitudinal charts",
+      "Multi-provider scheduling and appointment requests",
+      "SOAP notes and clinical worklists",
+      "Claims, remittances, and A/R tracking",
+      "Reminders, campaigns, and practice analytics",
+    ],
+    primaryCta: {
+      label: "View Demo",
+      href: "https://optialign-demo-production.up.railway.app/",
+    },
+    secondaryCta: {
+      label: "Request a Walkthrough",
+      href: "/contact",
+    },
+  },
 ];
