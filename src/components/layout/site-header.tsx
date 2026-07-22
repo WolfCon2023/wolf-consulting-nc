@@ -23,6 +23,7 @@ function ProductsDropdown({
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   const children = item.children ?? [];
 
   useEffect(() => {
@@ -53,8 +54,16 @@ function ProductsDropdown({
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={(e) => {
-          if (open) onNavigate(e, item.href);
-          else setOpen(true);
+          if (!open) {
+            setOpen(true);
+            return;
+          }
+          if (item.href.includes("#")) {
+            onNavigate(e, item.href);
+          } else {
+            setOpen(false);
+            navigate(item.href);
+          }
         }}
       >
         {item.label}

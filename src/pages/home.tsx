@@ -1,8 +1,9 @@
-import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
 import { Seo } from "@/components/seo/seo";
 import { Faq } from "@/components/marketing/faq";
+import { Hero } from "@/components/marketing/hero";
 import { Products } from "@/components/marketing/products";
 import { Section, SectionHeader } from "@/components/marketing/section";
 import { Testimonials } from "@/components/marketing/testimonials";
@@ -46,58 +47,17 @@ export function HomePage() {
         title="Home"
         path="/"
         jsonLd={jsonLd}
-        description="Agile coaching, IT consulting, and technology strategy tailored to your organization—delivered with integrity and measurable outcomes."
+        description="Wolf Consulting Group builds purpose-built software for clinics, accounting firms, and operators — plus agile coaching and IT strategy that stick."
       />
 
-      <section className="border-b">
-        <div className="container py-16 md:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-balance text-4xl font-semibold tracking-tight md:text-6xl">
-              Agile. Strategic. Powerful. Wolf Consulting.
-            </h1>
-            <p className="mt-5 text-pretty text-lg text-muted-foreground md:text-xl">
-              Empower your business growth. Transform your strategies into impactful
-              results tailored to your unique business needs.
-            </p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-2 rounded-full border bg-background/70 px-4 py-2">
-                <CheckCircle2 className="h-4 w-4" /> Minority veteran-owned
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border bg-background/70 px-4 py-2">
-                <CheckCircle2 className="h-4 w-4" /> Based in Waxhaw, NC
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border bg-background/70 px-4 py-2">
-                <CheckCircle2 className="h-4 w-4" /> Agile + IT strategy + engineering
-              </span>
-            </div>
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button asChild size="lg">
-                <NavLink to={site.ctas.primary.href}>
-                  {site.ctas.primary.label} <ArrowRight />
-                </NavLink>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <NavLink to={site.ctas.secondary.href}>{site.ctas.secondary.label}</NavLink>
-              </Button>
-            </div>
-            <div className="mt-6 text-sm text-muted-foreground">
-              Prefer to talk now?{" "}
-              <a className="font-medium text-foreground hover:underline" href={`tel:${site.contact.phone}`}>
-                <span className="inline-flex items-center gap-1">
-                  <Phone className="h-4 w-4" /> {site.contact.phone}
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       <Section>
         <div className="container py-14">
           <SectionHeader
-            eyebrow="Trust"
-            title="A partner you can rely on"
-            description="Built for leaders who want clarity, momentum, and measurable outcomes—not noise."
+            eyebrow="Why teams choose us"
+            title="A partner for systems and delivery"
+            description="Minority veteran-owned. Based in Waxhaw, NC. Built for leaders who want clarity, momentum, and software they can actually run."
             align="center"
           />
           <div className="mt-10">
@@ -106,65 +66,12 @@ export function HomePage() {
         </div>
       </Section>
 
-      <Section tone="muted" className="border-y">
-        <div className="container py-14">
-          <SectionHeader
-            eyebrow="Core outcomes"
-            title="Make progress you can measure"
-            description="A focused set of services that help you plan, deliver, and improve—without slowing teams down."
-          />
-
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <Card>
-              <CardHeader>
-                <CardTitle>Tailored Agile Transformation</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                Coaching and leadership to implement agile practices that fit your
-                organization—aligned to business goals and real constraints.
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Holistic IT Optimization</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                Strategy, planning, and delivery improvements to streamline IT
-                processes and increase reliability across teams and systems.
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Strategic Technology Alignment</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                Assessments and architectural planning to align technology
-                investments with outcomes, scalability, and long-term resilience.
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild>
-              <NavLink to="/services">
-                Explore Services <ArrowRight />
-              </NavLink>
-            </Button>
-            <Button asChild variant="outline">
-              <NavLink to="/questionnaire">Start Website Questionnaire</NavLink>
-            </Button>
-          </div>
-        </div>
-      </Section>
-
       <Section id="products">
         <div className="container py-14">
           <SectionHeader
             eyebrow="Products"
-            title="Software built for the way you work"
-            description="Purpose-built tools from Wolf Consulting Group to streamline operations and give your team a single source of truth."
+            title="Try the platforms we ship"
+            description="Interactive demos for back office, chiropractic practice management, and accounting firms — fictional data, real workflows."
             align="center"
           />
           <div className="mt-10">
@@ -173,32 +80,70 @@ export function HomePage() {
         </div>
       </Section>
 
+      <Section tone="muted" className="border-y">
+        <div className="container py-14">
+          <SectionHeader
+            eyebrow="Consulting"
+            title="When you need people, not just software"
+            description="Coaching, strategy, and engineering support for teams that need to move — without slowing delivery down."
+          />
+
+          <div className="mt-8 grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "Agile that fits your constraints",
+                body: "Practical coaching for leaders and teams — aligned to goals, not textbooks.",
+              },
+              {
+                title: "IT that supports the business",
+                body: "Strategy, reliability, and delivery improvements across systems and teams.",
+              },
+              {
+                title: "Technology that scales with intent",
+                body: "Architecture and planning that connect investments to outcomes.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-l-2 border-primary/20 pl-4">
+                <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button asChild>
+              <NavLink to="/services">
+                Explore services <ArrowRight />
+              </NavLink>
+            </Button>
+            <Button asChild variant="outline">
+              <NavLink to="/contact">Book a consultation</NavLink>
+            </Button>
+          </div>
+        </div>
+      </Section>
+
       <Section>
         <div className="container py-16">
-          <div className="grid items-center gap-8 md:grid-cols-2">
+          <div className="grid items-start gap-10 md:grid-cols-2">
             <div>
               <SectionHeader
                 eyebrow="How we work"
                 title="Clear, calm execution"
-                description="You’ll always know what we’re doing, why it matters, and what’s next. We keep momentum without sacrificing quality."
+                description="You’ll always know what we’re doing, why it matters, and what’s next."
               />
               <ul className="mt-6 grid gap-3 text-sm text-muted-foreground">
-                <li className="flex gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground" />
-                  Discovery call → align goals, constraints, and success metrics.
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground" />
-                  Lightweight assessment → surface risks, priorities, and quick wins.
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground" />
-                  Engagement plan → scope, timeline, and cadence your team can sustain.
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground" />
-                  Delivery + enablement → practical outcomes and team capability.
-                </li>
+                {[
+                  "Discovery call → align goals, constraints, and success metrics.",
+                  "Lightweight assessment → surface risks, priorities, and quick wins.",
+                  "Engagement plan → scope, timeline, and cadence your team can sustain.",
+                  "Delivery + enablement → practical outcomes and team capability.",
+                ].map((line) => (
+                  <li key={line} className="flex gap-2">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-foreground" />
+                    {line}
+                  </li>
+                ))}
               </ul>
               <div className="mt-6">
                 <Button asChild variant="secondary">
@@ -208,22 +153,36 @@ export function HomePage() {
                 </Button>
               </div>
             </div>
-            <Card>
-              <CardHeader>
-                <CardTitle>Ready to get started?</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-sm text-muted-foreground">
-                <p>
-                  Tell us what you’re trying to achieve. We’ll recommend a path
-                  forward—whether that’s coaching, strategy, or engineering support.
-                </p>
-                <Button asChild>
-                  <NavLink to="/contact">
-                    Book a Consultation <ArrowRight />
-                  </NavLink>
-                </Button>
-              </CardContent>
-            </Card>
+
+            <div className="rounded-2xl border bg-muted/20 p-6 md:p-8">
+              <h3 className="text-xl font-semibold tracking-tight">Two clear paths</h3>
+              <div className="mt-6 space-y-5">
+                <div>
+                  <p className="text-sm font-semibold">Need software?</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Open a product demo, then request a walkthrough tailored to your
+                    clinic, firm, or operations team.
+                  </p>
+                  <Button asChild className="mt-3" variant="outline">
+                    <NavLink to="/products">
+                      Browse products <ArrowRight />
+                    </NavLink>
+                  </Button>
+                </div>
+                <div className="border-t pt-5">
+                  <p className="text-sm font-semibold">Need consulting?</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Tell us what you’re trying to achieve. We’ll recommend coaching,
+                    strategy, or engineering support.
+                  </p>
+                  <Button asChild className="mt-3">
+                    <NavLink to="/contact">
+                      Book a consultation <ArrowRight />
+                    </NavLink>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -233,7 +192,7 @@ export function HomePage() {
           <SectionHeader
             eyebrow="Results"
             title="What clients say"
-            description="High-trust delivery, practical guidance, and outcomes your stakeholders can see."
+            description="High-trust delivery, practical guidance, and outcomes stakeholders can see."
           />
           <div className="mt-8">
             <Testimonials />
@@ -252,16 +211,16 @@ export function HomePage() {
             <Faq />
             <Card className="h-fit">
               <CardHeader>
-                <CardTitle>Fastest way to scope your needs</CardTitle>
+                <CardTitle>Prefer a structured intake?</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-sm text-muted-foreground">
                 <p>
-                  Use our questionnaire to share goals, timelines, and constraints.
+                  Share goals, timelines, and constraints through our questionnaire.
                   We’ll review it and follow up with recommendations.
                 </p>
                 <Button asChild>
                   <NavLink to="/questionnaire">
-                    Start the Questionnaire <ArrowRight />
+                    Start the questionnaire <ArrowRight />
                   </NavLink>
                 </Button>
               </CardContent>
@@ -272,6 +231,3 @@ export function HomePage() {
     </>
   );
 }
-
-
-

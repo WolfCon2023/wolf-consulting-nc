@@ -12,6 +12,7 @@ import { SiteLayout } from "@/components/layout/site-layout";
 import { AboutPage } from "@/pages/about";
 import { ContactPage } from "@/pages/contact";
 import { HomePage } from "@/pages/home";
+import { ProductsPage } from "@/pages/products";
 import { QuestionnairePage } from "@/pages/questionnaire";
 import { ServicesPage } from "@/pages/services";
 import { AccessibilityStatementPage } from "@/pages/legal/accessibility-statement";
@@ -61,6 +62,7 @@ export default function App() {
               <Route element={<SiteLayout />}>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/services" element={<ServicesPage />} />
+                <Route path="/products" element={<ProductsPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route

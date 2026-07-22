@@ -27,7 +27,7 @@ export const site = {
   },
   ctas: {
     primary: { label: "Book a Consultation", href: "/contact" },
-    secondary: { label: "View Services", href: "/services" },
+    secondary: { label: "Explore Products", href: "/products" },
   },
 } as const;
 
@@ -48,10 +48,10 @@ export const navLinks: NavLinkItem[] = [
   { label: "Services", href: "/services" },
   {
     label: "Products",
-    href: "/#products",
+    href: "/products",
     children: products.map((product) => ({
       label: product.name,
-      href: `/#${product.slug}`,
+      href: `/products#${product.slug}`,
       description: product.tagline,
     })),
   },
